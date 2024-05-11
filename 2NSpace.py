@@ -177,6 +177,10 @@ if __name__ == "__main__":
     # Here we ask the user to input the Galerkin integrand.
     equation_str3 = input(f"Enter an expression in terms of {', '.join([f'P{j+1}' for j in range(num_variables)])}: " )
 
+    # Call the solve_ode() function. Some parameters contain the replace_constants() function, which replaces constants found in an equation with their numerical values found in the constants dictionary.
+    # The solve_ode() function is defined on line 72, and the replace_constants() function is defined on line 67.
+    solve_ode(replace_constants(equation_str, constants), num_solutions, initial_guess, increments, replace_constants(equation_str2, constants), resolution, num_variables, replace_constants(equation_str3, constants))
+
     # After Everything is finished, we ask the user if they want to alter the values of any constants from the constants dictionary.
     running = True
     while running:
